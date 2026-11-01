@@ -1,0 +1,39 @@
+/* All colors come from CSS variables so the MCP "UI theme" server can change them live */
+.container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
+h1 { text-align: center; font-size: 1.6rem; margin-bottom: 20px; color: var(--primary); }
+h2 { margin: 0 0 12px; font-size: 1.15rem; }
+
+.card { background: var(--card); border-radius: 10px; padding: 20px; margin-bottom: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); }
+
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form h2, .form .actions { grid-column: 1 / -1; }
+
+input { padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; background: var(--card); color: var(--text); }
+input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+
+.btn { padding: 8px 14px; border: 1px solid var(--border); background: var(--card); color: var(--text); border-radius: 6px; cursor: pointer; font-size: 14px; }
+.btn:hover { filter: brightness(.95); }
+.btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn.primary:hover { filter: brightness(.88); }
+.btn.danger { color: #dc2626; border-color: #fca5a5; }
+.btn.danger:hover { background: #fef2f2; }
+
+.actions { display: flex; gap: 8px; }
+
+.list-header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.search { min-width: 240px; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); font-size: 14px; }
+th { background: var(--th-bg); }
+
+.empty { text-align: center; color: var(--muted); padding: 16px; }
+
+.alert { padding: 10px 14px; border-radius: 6px; margin-bottom: 16px; font-size: 14px; }
+.alert.success { background: #dcfce7; color: #166534; }
+.alert.error { background: #fee2e2; color: #991b1b; }
+
+@media (max-width: 600px) {
+  .form { grid-template-columns: 1fr; }
+}
