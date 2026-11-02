@@ -10,6 +10,8 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { registerUiTools } from "./ui-server.js";
 import { registerStudentTools } from "./student-server.js";
 import { registerInsightsTools } from "./insights-server.js";
+import { registerRenderTools } from "./render-server.js";
+
 
 const makeServer = (name, registerFns) => () => {
   const server = new McpServer({ name, version: "1.0.0" });
@@ -21,7 +23,8 @@ const SERVERS = {
   "/ui/mcp": makeServer("student-ui-theme", [registerUiTools]),
   "/students/mcp": makeServer("student-crud", [registerStudentTools]),
   "/insights/mcp": makeServer("student-insights", [registerInsightsTools]),
-  "/all/mcp": makeServer("student-all-in-one", [registerUiTools, registerStudentTools, registerInsightsTools]),
+  "/render/mcp": makeServer("student-render-containers", [registerRenderTools]),
+  "/all/mcp": makeServer("student-all-in-one", [registerUiTools, registerStudentTools, registerInsightsTools, registerRenderTools]),
 };
 
 const app = express();
